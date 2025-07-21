@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+<div class="container">
+    <h1>Inicio de sesión</h1>
+    <form action="/ejercicio2" method="POST">
+        <label for="nombre">Ingresa tu nombre</label>
+        <input type="text" id="nombre" name="nombre" value="{{nombre}}" required>
+        <br>
+        <label for="contrasena">Ingresa tu contraseña</label>
+        <input type="password" id="contrasena" name="contrasena" value="{{contrasena}}" required>
+        <br>
+        <button type="submit">Verificar</button>
+    </form>
+    {% if paso == 2 %}
+        {% if valido == True %}
+        <div>
+            <p>Bienvenido {{rol}} {{nombre}}</p>
+        </div>
+        {% else %}
+        <div>
+            <p>Usuario o contraseña incorrectos</p>
+        </div>
+        {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>
